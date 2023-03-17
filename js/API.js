@@ -1,8 +1,16 @@
 const url = 'http://localhost:4000/clientes';
 
-export const nuevoCliente = cliente => {
+export const nuevoCliente = async cliente => {
   try {
-    fetch
+    await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(cliente),
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
+    window.location.href = 'index.html';
+
   } catch (error) {
     console.log(error);
   }
