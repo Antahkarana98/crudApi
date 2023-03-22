@@ -15,3 +15,36 @@ export const nuevoCliente = async cliente => {
     console.log(error);
   }
 }
+
+
+export const obtenerClientes = async () => {
+  try {
+    const resultado = await fetch(url);
+    const clientes = await resultado.json();
+    return clientes;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+export const eliminarCliente = async id => {
+  try {
+    await fetch(`${url}/${id}`, {
+      method: 'DELETE'
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+export const obtenerCliente = async id => {
+  try {
+    const resultado = await fetch(`${url}/${id}`);
+    const clientes = await resultado.json();
+    return clientes;
+  } catch (error) {
+    console.log(error);
+  }
+}
